@@ -1,0 +1,34 @@
+Making calibration CSV..
+Vai_q_tensorflow v1.2.0 build for Tensorflow 1.15.2 git version
+heads/1.4-0-gd553b442
+2022-02-07 04:49:04.533526: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Not found: ./bin/ptxas not found
+Relying on driver to perform ptx compilation. This message will be only logged once.
+2022-02-07 04:49:04.544547: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 16.01MiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.544564: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 16.01MiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.544570: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 172.25MiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.544575: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 172.25MiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.544603: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.544610: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.700057: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.63GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.700074: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.63GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.720786: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 04:49:04.720800: W tensorflow/core/common_runtime/bfc_allocator.cc:239] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+N/A% (0 of 10) |                         | Elapsed Time: 0:00:00 ETA:  --:--:--
+Fatal Python error: Segmentation fault
+
+Thread 0x00007fdde1e74740 (most recent call first):
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/client/session.py", line 1443 in _call_tf_sessionrun
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/client/session.py", line 1350 in _run_fn
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/client/session.py", line 1365 in _do_call
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/client/session.py", line 1359 in _do_run
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/client/session.py", line 1180 in _run
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/client/session.py", line 956 in run
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/contrib/decent_q/python/decent_q.py", line 325 in calibrate_frozen
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/contrib/decent_q/python/decent_q.py", line 378 in quantize_frozen
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/contrib/decent_q/python/decent_q.py", line 676 in main
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/contrib/decent_q/python/decent_q.py", line 1060 in <lambda>
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/absl/app.py", line 258 in _run_main
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/absl/app.py", line 312 in run
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/platform/app.py", line 40 in run
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/contrib/decent_q/python/decent_q.py", line 1061 in run_main
+  File "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin/vai_q_tensorflow", line 11 in <module>

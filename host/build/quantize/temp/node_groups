@@ -1,0 +1,4 @@
+conv2d/Conv2D input_1 conv2d/Relu conv2d/kernel conv2d/bias
+conv2d_1/Conv2D max_pooling2d/MaxPool conv2d_1/Relu conv2d_1/kernel conv2d_1/bias
+conv2d_2/Conv2D max_pooling2d_1/MaxPool conv2d_2/Relu conv2d_2/kernel conv2d_2/bias
+dense/MatMul flatten/Reshape dense/BiasAdd dense/kernel dense/bias

@@ -1,0 +1,18 @@
+N/A% (0 of 7) |                          | Elapsed Time: 0:00:00 ETA:  --:--:--
+ 14% (1 of 7) |###                       | Elapsed Time: 0:00:00 ETA:   0:00:04
+100% (7 of 7) |##########################| Elapsed Time: 0:00:00 Time:  0:00:00
+
+------------------------------------
+TensorFlow version :  1.15.2
+3.6.15 | packaged by conda-forge | (default, Dec  3 2021, 18:49:41) 
+[GCC 9.4.0]
+------------------------------------
+Command line options:
+ --graph      :  ./build/freeze/frozen_graph.pb
+ --input_node :  input_1
+ --output_node:  softmax/Softmax
+ --batchsize  :  32
+ --gpu        :  0
+------------------------------------
+
+Graph accuracy with validation dataset: 1.0000
