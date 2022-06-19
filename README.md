@@ -3,31 +3,31 @@
     * *Build vivado schematic*
         * *Make modules*
             * **Make DPU**
-            * *Setup PS*
-                * *Use PS0 as USB micro B for GUI*
-                * *Use PS1 as USB micro AB for debugging*
-            * *Make UART modules*
-                * *Use PL0~24 as RS- 422 with MAX3490ESA+*
-                    * *[How to use MAX3490ESA+]()*
+            * **Setup PS**
+                * **Use PS0 as USB micro B for GUI**
+                * **Use PS1 as USB micro AB for debugging**
+            * *Make UART modules* (***In Progress***)
+                * *Use PL0~24 as RS- 422 with MAX3490ESA+* (***In Progress***)
+                    * *[How to use MAX3490ESA+]()* (***In Progress***)
 * *Construct Linux*
     * *Build petalinux*
         * **Contain BSP file**
-        * *Make Linux drivers*
-            * *For UART modules*
+        * *Make Linux drivers* (***In Progress***)
+            * *For UART modules* (***In Progress***)
 * *Construct SW*
     * *Build python files*
         * **Make lookup.py**
-            * **[.csv file](./w_board/table.csv) to [.feather file](./w_board/table.feather)**
+            * ~~[.csv file](./w_board/table.csv) to [.feather file](./w_board/table.feather)~~
             * **[.csv file](./w_board/table.csv)**
-        * *Make [preprocess.py](./w_gui/preprocess.py)* (***In Progress***)
-            * Inputs [input file](./w_gui/input)
-        * *Make [inference.py](./w_gui/inference.py)*
+        * **Make [preprocess.py](./w_gui/preprocess.py)**
+            * **Inputs [input file](./w_gui/input)**
+        * Make [inference.py](./w_gui/inference.py)
             * **Train CNN model**
             * **Quantize CNN model**
             * **Validate CNN model**
             * **Convert into .xmodel file**
-        * Make [translate.py](./w_gui/translate.py)
-        * Make [send.py](./w_gui/send.py)
+        * **Make [translate.py](./w_gui/translate.py)**
+        * *Make [send.py](./w_gui/send.py)* (***In Progress***)
   
 
 # Scenario
@@ -35,23 +35,23 @@
     * GUI#
         * Send **Mode Information, Phase Degree(Azimuth&Elevation) and Attenuator** Data with **matlab>teraterm>zmodem**
     * FPGA#
-        * Receive Data as [input file](./w_gui/input)
-        * [preprocess.py](./w_gui/preprocess.py)
-        * [translate.py](./w_gui/translate.py)
-        * [send.py](./w_gui/send.py)
+        * **Receive Data as [input file](./w_gui/input)**
+        * **[preprocess.py](./w_gui/preprocess.py)**
+        * **[translate.py](./w_gui/translate.py)**
+        * *[send.py](./w_gui/send.py)* (***In Progress***)
     * 25'{MCUs}#
-        * Receive Control Bits in RS- 422 UART Communication with 9-pins DSUB
+        * *Receive Control Bits in RS- 422 UART Communication with 9-pins DSUB* (***In Progress***)
 * AI Mode
     * GUI#
         * Send **Mode Information, I/Q Summation** Data with **matlab>teraterm>zmodem**
     * FPGA#
-        * Receive Data as [input file](./w_gui/input)
-        * [preprocess.py](./w_gui/preprocess.py)
+        * **Receive Data as [input file](./w_gui/input)**
+        * **[preprocess.py](./w_gui/preprocess.py)**
         * [inference.py](./w_gui/inference.py)
-        * [translate.py](./w_gui/translate.py)
-        * [send.py](./w_gui/send.py)
+        * **[translate.py](./w_gui/translate.py)**
+        * *[send.py](./w_gui/send.py)* (***In Progress***)
     * 25'{MCUs}#
-        * Receive Control Bits in RS- 422 UART Communication with 9-pins DSUB
+        * *Receive Control Bits in RS- 422 UART Communication with 9-pins DSUB* (***In Progress***)
   
 
 # Reference
