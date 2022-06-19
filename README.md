@@ -56,15 +56,24 @@
 <br></br>
 # Archieve
 * How to use GPIO in commandline
-    ># root@xilinx-zcu102-2021_2:/sys/class/gpio# ls -al
-    ># total 0
-    ># drwxr-xr-x  2 root root    0 Mar  9 13:54 .
-    ># drwxr-xr-x 61 root root    0 Mar  9 13:54 ..
-    ># --w-------  1 root root 4096 Mar  9 13:54 export
-    ># lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip301 -> ../../devices/platform/axi/ff020000.i2c/i2c-0/0-0021/gpio/gpiochip301
-    ># lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip317 -> ../../devices/platform/axi/ff020000.i2c/i2c-0/0-0020/gpio/gpiochip317
-    ># lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip333 -> ../../devices/platform/axi/ff0a0000.gpio/gpio/gpiochip333
-    ># lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip507 -> ../../devices/platform/amba_pl@0/a0000000.gpio/gpio/gpiochip507
-    ># lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip508 -> ../../devices/platform/firmware:zynqmp-firmware/firmware:zynqmp-firmware:gpio/gpio/gpiochip508
-    ># --w-------  1 root root 4096 Mar  9 13:54 unexport
+   * Check amba_pl is in the list.
+   >root@xilinx-zcu102-2021_2:/sys/class/gpio# ls -al  
+     
+   >total 0  
+   >drwxr-xr-x  2 root root    0 Mar  9 13:54 .  
+   >drwxr-xr-x 61 root root    0 Mar  9 13:54 ..  
+   >--w-------  1 root root 4096 Mar  9 13:54 export  
+   >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip301 -> ../../devices/platform/axi/ff020000.i2c/i2c-0/0-0021/gpio/gpiochip301  
+   >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip317 -> ../../devices/platform/axi/ff020000.i2c/i2c-0/0-0020/gpio/gpiochip317  
+   >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip333 -> ../../devices/platform/axi/ff0a0000.gpio/gpio/gpiochip333  
+   >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip507 -> ../../devices/platform/amba_pl@0/a0000000.gpio/gpio/gpiochip507  
+   >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip508 -> ../../devices/platform/firmware:zynqmp-firmware/firmware:zynqmp-firmware:gpio/gpio/gpiochip508  
+   >--w-------  1 root root 4096 Mar  9 13:54 unexport  
+   * Declare to use amba_pl chip with #echo 507 > /sys/class/gpio/export#
+   * Declare to use gpio as in with #echo "low" > /sys/class/gpio/gpio507/direction#
+   * Declare to use gpio as out with #echo "high" > /sys/class/gpio/gpio507/direction#
+   * Declare to turn on gpio with #echo 1 > /sys/class/gpio/gpio507/value#
+   * Declare to stop using amba_pl chip with #echo 507 > /sys/class/gpio/unexport#
 * How to use UART in commandline
+   * Send file as xmodem from PC to FPGA with #sx sequence_2022_05_19_14_38_30 < /dev/ttyUSB0 > /dev/ttyUSB0#
+   * Send file as xmodem from FPGA to PC with #sx sequence_2022_05_19_14_38_30 < /dev/ttyPS0 > /dev/ttyPS0#
