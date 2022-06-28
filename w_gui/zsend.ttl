@@ -1,5 +1,0 @@
-connect '/C=3'
-setbaud 115200
-sendln
-zmodemsend param2 0
-closett
