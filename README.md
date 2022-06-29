@@ -59,6 +59,8 @@
   
 
 # Archieve
+* How to check Device Tree in commandline
+   > dtc -I fs /sys/firmware/devicetree/base
 * How to use GPIO in commandline
    * Check amba_pl is in the list.
    >root@xilinx-zcu102-2021_2:/sys/class/gpio# ls -al  
@@ -79,5 +81,7 @@
    * Declare to turn on gpio with #echo 1 > /sys/class/gpio/gpio507/value#
    * Declare to stop using amba_pl chip with #echo 507 > /sys/class/gpio/unexport#
 * How to use UART in commandline
-   * Send file as xmodem from PC to FPGA with #sx sequence_2022_05_19_14_38_30 < /dev/ttyUSB0 > /dev/ttyUSB0#
-   * Send file as xmodem from FPGA to PC with #sx sequence_2022_05_19_14_38_30 < /dev/ttyPS0 > /dev/ttyPS0#
+   * Send file as xmodem from PC to FPGA with 
+   > sx sequence_2022_05_19_14_38_30 < /dev/ttyUSB0 > /dev/ttyUSB0#
+   * Send file as xmodem from FPGA to PC with
+   > sx sequence_2022_05_19_14_38_30 < /dev/ttyPS0 > /dev/ttyPS0#
