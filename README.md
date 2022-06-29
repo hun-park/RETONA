@@ -75,11 +75,16 @@
    >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip507 -> ../../devices/platform/amba_pl@0/a0000000.gpio/gpio/gpiochip507  
    >lrwxrwxrwx  1 root root    0 Mar  9 13:54 gpiochip508 -> ../../devices/platform/firmware:zynqmp-firmware/firmware:zynqmp-firmware:gpio/gpio/gpiochip508  
    >--w-------  1 root root 4096 Mar  9 13:54 unexport  
-   * Declare to use amba_pl chip with #echo 507 > /sys/class/gpio/export#
-   * Declare to use gpio as in with #echo "low" > /sys/class/gpio/gpio507/direction#
-   * Declare to use gpio as out with #echo "high" > /sys/class/gpio/gpio507/direction#
-   * Declare to turn on gpio with #echo 1 > /sys/class/gpio/gpio507/value#
-   * Declare to stop using amba_pl chip with #echo 507 > /sys/class/gpio/unexport#
+   * Declare to use amba_pl chip with
+   > echo 507 > /sys/class/gpio/export
+   * Declare to use gpio as in with 
+   > echo "low" > /sys/class/gpio/gpio507/direction
+   * Declare to use gpio as out with
+   > echo "high" > /sys/class/gpio/gpio507/direction
+   * Declare to turn on gpio with
+   > echo 1 > /sys/class/gpio/gpio507/value
+   * Declare to stop using amba_pl chip with
+   > echo 507 > /sys/class/gpio/unexport
 * How to use UART in commandline
    * Send file as xmodem from PC to FPGA with 
    > sx sequence_2022_05_19_14_38_30 < /dev/ttyUSB0 > /dev/ttyUSB0#
