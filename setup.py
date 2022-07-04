@@ -17,11 +17,11 @@ if (APT):
     CWD = os.getcwd()
     DIR = os.listdir(CWD)
     if (".venv" in DIR):
-        os.system("source .venv/bin/activate")
+        subprocess.run("echo '. .venv/bin/activate'", shell=True)
     else:
         os.system("python3 -m venv .venv")
-        os.system("source .venv/bin/activate")
-        os.system("pip install pandas")
-        os.system("pip install numpy")
+        subprocess.run("bash -c 'source .venv/bin/activate'", shell=True)
+        subprocess.run("bash -c 'source .venv/bin/activate' && pip install pandas", shell=True)
+        subprocess.run("bash -c 'source .venv/bin/activate' && pip install numpy", shell=True)
 else:
     os.system("sudo apt install python{}-venv".format(VER))

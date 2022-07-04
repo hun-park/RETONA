@@ -11,5 +11,5 @@ class message:
             self.RX_DEG  = [int(x) for x in refined[refined.index("RP") + 1:refined.index("RP") + 3]]
             self.TX_DEG  = [int(x) for x in refined[refined.index("TP") + 1:refined.index("TP") + 3]]
 
-            self.RX_ATT  = int(refined[refined.index("RA") + 1])
-            self.TX_ATT  = int(refined[refined.index("TA") + 1])
+            #self.RX_ATT  = int(refined[refined.index("RA") + 1])
+            #self.TX_ATT  = int(refined[refined.index("TA") + 1])
