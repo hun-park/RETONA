@@ -20,8 +20,8 @@ if (APT):
         os.system("source .venv/bin/activate")
     else:
         os.system("python3 -m venv .venv")
+        os.system("source .venv/bin/activate")
         os.system("pip install pandas")
         os.system("pip install numpy")
-        os.system("source .venv/bin/activate")
 else:
     os.system("sudo apt install python{}-venv".format(VER))
