@@ -1,0 +1,5 @@
+{
+    "lib": "libvart-dpu-runner.so",
+    "filename": "./dpu_cnn_0.elf",
+    "kernel": [ "cnn_0" ]
+}
