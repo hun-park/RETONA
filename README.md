@@ -61,8 +61,8 @@
 * vivado
 * petalinux ***cd ~/projects/retona/standalone/***
    * source_petalinux
-   * petalinux-create -t project -s xilinx-zcu102-trd.bsp && cd xilinx-zcu102-trd
-   * petalinux-config --get-hw-description=../top_wrapper_addr.xsa
+   * petalinux-create -t project -s ../bsp/xilinx-zcu102-trd.bsp && cd xilinx-zcu102-trd
+   * petalinux-config --get-hw-description=../xsas/uartlite_w_interrupt.xsa
       * (Yocto Settings) → Enable Buildtools Extended
    * petalinux-config -c kernel
       * CONFIG_GPIO_SYSFS=y
