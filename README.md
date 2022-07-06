@@ -81,8 +81,9 @@
       > [    3.947328] ff000000.serial: ttyPS0 at MMIO 0xff000000 (irq = 50, base_baud = 6249375) is a xuartps  
       > [    3.969882] xuartps ff010000.serial: there is not valid maps for state default  
       > [    3.981473] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 51, base_baud = 6249375) is a xuartps  
-      > [    4.120876] uartlite a0000000.serial: ttyUL1 too large  
+      > [    4.120876] [uartlite a0000000.serial: ttyUL1 too large](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wmk2&logNo=220198111054)*  
       > [    4.126020] uartlite: probe of a0000000.serial failed with error -22  
+         * this issue is relevant with [./build/tmp/work-shared/zynqmp-generic/kernel-source/drivers/tty/serial/uartlite.c](https://elixir.bootlin.com/linux/latest/source/drivers/tty/serial/uartlite.c)
 
 * How to check Device Tree in commandline
    > dtc -I fs /sys/firmware/devicetree/base
