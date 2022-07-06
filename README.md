@@ -59,6 +59,15 @@
   
 
 # Archieve
+* How to connect UARTLITE with vivado and petalinux
+   * vivado@host -> Connect UARTLITE IP with PS
+   * vivado@host -> Connect UARTLITE IP's Interrupt with PS IRQ_F2P
+   * petalinux@host -> kernel config to ***Device drivers - Characters devices - Serial Drivers - Xilinx uartlite...***
+   * device probing
+      * petalinux@host
+      > dtc -O dts -I dtb -o images/linux/system.dts images/linux/system.dtb
+      * cmd@host
+      > dmesg | grep serial
 * How to check Device Tree in commandline
    > dtc -I fs /sys/firmware/devicetree/base
 * How to use GPIO in commandline
