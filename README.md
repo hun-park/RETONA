@@ -56,7 +56,28 @@
 
 # Reference
 * [How to integrate the DPU into Custom Platforms](https://docs.xilinx.com/r/en-US/ug1414-vitis-ai/Integrating-the-DPU-into-Custom-Platforms)
-  
+
+# Steps
+* vivado
+* petalinux
+   * source_petalinux
+   * petalinux-create -t project -s xilinx-zcu102-trd.bsp && cd xilinx-zcu102-trd
+   * petalinux-config --get-hw-description=../top_wrapper_addr.xsa
+      * (Yocto Settings) → Enable Buildtools Extended
+   * petalinux-config -c kernel
+      * CONFIG_GPIO_SYSFS=y
+      * CONFIG_SYSFS=y
+      * CONFIG_GPIO_XILINX=y
+      * CONFIG_SERIAL_UARTLITE=y | CONFIG_SERIAL_UARTLITE=m
+      * CONFIG_SERIAL_UARTLITE_NR_UARTS=<total number of UARTs in the system>
+   * petalinux-config -c rootfs
+      * petalinux-group → opencv, opencv-dev
+   * petalinux-build
+   * cd images/linux && petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit
+   * petalinux-package --wic --wic-extra-args "-c gzip"
+* FPGA
+   * to check device-tree, dtc -I fs /sys/firmware/devicetree/base
+   * to check interrupts, cat /proc/interrupts
 
 # Archieve
 * How to connect UARTLITE with vivado and petalinux
@@ -76,6 +97,7 @@
       > system.dts: Warning (gpios_property): /__symbols__:gpio: property size (19) is invalid, expected multiple of 4  
 
       * cmd@host
+         * this issue is relevant with [./build/tmp/work-shared/zynqmp-generic/kernel-source/drivers/tty/serial/uartlite.c](https://elixir.bootlin.com/linux/latest/source/drivers/tty/serial/uartlite.c)
       > dmesg | grep serial
       
       > [    3.947328] ff000000.serial: ttyPS0 at MMIO 0xff000000 (irq = 50, base_baud = 6249375) is a xuartps  
@@ -83,10 +105,6 @@
       > [    3.981473] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 51, base_baud = 6249375) is a xuartps  
       > [    4.120876] [uartlite a0000000.serial: ttyUL1 too large](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wmk2&logNo=220198111054)*  
       > [    4.126020] uartlite: probe of a0000000.serial failed with error -22  
-         * this issue is relevant with [./build/tmp/work-shared/zynqmp-generic/kernel-source/drivers/tty/serial/uartlite.c](https://elixir.bootlin.com/linux/latest/source/drivers/tty/serial/uartlite.c)
-
-* How to check Device Tree in commandline
-   > dtc -I fs /sys/firmware/devicetree/base
    
 * How to use GPIO in commandline
    * Check amba_pl is in the list.
