@@ -121,6 +121,16 @@ disp("done");
       > [    3.981473] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 51, base_baud = 6249375) is a xuartps  
       > [    4.120876] [uartlite a0000000.serial: ttyUL1 too large](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wmk2&logNo=220198111054)*  
       > [    4.126020] uartlite: probe of a0000000.serial failed with error -22  
+      
+      * cmd@host
+         * this issue is relevant with
+      > dmesg | grep serial
+      
+      > [    3.946443] ff000000.serial: ttyPS0 at MMIO 0xff000000 (irq = 50, base_baud = 6249375) is a xuartps  
+      > [    3.968994] xuartps ff010000.serial: there is not valid maps for state default  
+      > [    3.980586] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 51, base_baud = 6249375) is a xuartps  
+      > [    4.119994] uartlite a0000000.serial: Failed to register driver  
+      > [    4.125916] uartlite: probe of a0000000.serial failed with error -16  
    
 * How to use GPIO in commandline
    * Check amba_pl is in the list.
