@@ -78,6 +78,22 @@
 * FPGA
    * to check device-tree, dtc -I fs /sys/firmware/devicetree/base
    * to check interrupts, cat /proc/interrupts
+   * to connect network,
+      * ifconfig eth0 10.201.180.186 netmask 255.255.255.0 up
+      * route add default gw 10.201.180.1 eth0
+   * to install pip, 
+      * rdate -s time.bora.net
+      * curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      * python3 get-pip.py
+* GUI
+   * to use teraterm via matlab, !D:\teraterm\ttpmacro.exe C:\Users\User\Downloads\zsend.ttl C:\Users\User\Downloads\input
+disp("done");
+   * to send file via teraterm,
+      * connect '/C=3'
+      * setbaud 115200
+      * sendln
+      * zmodemsend param2 0
+      * closett
 
 # Archieve
 * How to connect UARTLITE with vivado and petalinux
