@@ -59,7 +59,7 @@
 
 # Steps
 * vivado
-* petalinux
+* petalinux ***cd ~/projects/retona/standalone/***
    * source_petalinux
    * petalinux-create -t project -s xilinx-zcu102-trd.bsp && cd xilinx-zcu102-trd
    * petalinux-config --get-hw-description=../top_wrapper_addr.xsa
