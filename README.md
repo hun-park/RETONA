@@ -47,7 +47,7 @@
     * FPGA#
         * **Receive Data as [input file](./w_gui/input)**
         * **[preprocess.py](./w_gui/preprocess.py)**
-        * [inference.py](./w_gui/inference.py)
+        * **[inference.py](./w_gui/inference.py)**
         * **[translate.py](./w_gui/translate.py)**
         * *[send.py](./w_gui/send.py)* (***In Progress***)
     * 25'{MCUs}#
@@ -66,10 +66,27 @@
    * device probing
       * petalinux@host
       > dtc -O dts -I dtb -o images/linux/system.dts images/linux/system.dtb
+      
+      > system.dts: Warning (unit_address_vs_reg): /amba_pl@0: node has a unit name, but no reg property  
+      > system.dts: Warning (unit_address_vs_reg): /memory: node has a reg or ranges property, but no unit name  
+      > system.dts: Warning (pci_device_reg): /axi/pcie@fd0e0000/legacy-interrupt-controller: missing PCI reg property  
+      > system.dts: Warning (simple_bus_reg): /amba_pl@0/misc_clk_0: missing or empty reg/ranges property  
+      > system.dts: Warning (simple_bus_reg): /amba_pl@0/misc_clk_1: missing or empty reg/ranges property  
+      > system.dts: Warning (avoid_unnecessary_addr_size): /gpio-keys: unnecessary #address-cells/#size-cells without "ranges" or child "reg" property  
+      > system.dts: Warning (gpios_property): /__symbols__:gpio: property size (19) is invalid, expected multiple of 4  
+
       * cmd@host
       > dmesg | grep serial
+      
+      > [    3.947328] ff000000.serial: ttyPS0 at MMIO 0xff000000 (irq = 50, base_baud = 6249375) is a xuartps  
+      > [    3.969882] xuartps ff010000.serial: there is not valid maps for state default  
+      > [    3.981473] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 51, base_baud = 6249375) is a xuartps  
+      > [    4.120876] uartlite a0000000.serial: ttyUL1 too large  
+      > [    4.126020] uartlite: probe of a0000000.serial failed with error -22  
+
 * How to check Device Tree in commandline
    > dtc -I fs /sys/firmware/devicetree/base
+   
 * How to use GPIO in commandline
    * Check amba_pl is in the list.
    >root@xilinx-zcu102-2021_2:/sys/class/gpio# ls -al  
@@ -94,6 +111,7 @@
    > echo 1 > /sys/class/gpio/gpio507/value
    * Declare to stop using amba_pl chip with
    > echo 507 > /sys/class/gpio/unexport
+   
 * How to use UART in commandline
    * Send file as xmodem from PC to FPGA with 
    > sx sequence_2022_05_19_14_38_30 < /dev/ttyUSB0 > /dev/ttyUSB0#
