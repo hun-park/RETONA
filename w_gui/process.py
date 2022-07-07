@@ -1,5 +1,6 @@
 from preprocess import message
 from translate import lookuptable
+from inference import inference
 
 # assume 1-channel
 class signs:
@@ -13,12 +14,16 @@ msg = message("../w_gui/input")
 # mode selection
 rx_signs, tx_signs = signs(), signs()
 if (msg.MODE):
-    # manual mode : bypass
+    # ",MO,1" -> manual mode : bypass
     rx_signs.update(msg.RX_DEG, msg.RX_ATT)
     tx_signs.update(msg.TX_DEG, msg.TX_ATT)
 else:
-    # ai mode : inference
-    pass
+    # ",MO,0" -> auto mode : inference
+    # "data/test/test16.csv" to preprocessed input
+    # "data/class.csv" to python variables
+    # 10 to optimized number of threads
+    hot_time = inference("data/test/test16.csv","data/class.csv",10,"model_dir/cnn.xmodel")
+    print(hot_time)
 
 # translate
 rx_cmd = lookuptable("../w_board/table").return_bits(rx_signs.azimuth, rx_signs.elevation).to_list()
