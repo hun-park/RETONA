@@ -1,0 +1,24 @@
+WARNING:tensorflow:From /opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/ops/init_ops.py:97: calling GlorotUniform.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From /opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/ops/init_ops.py:97: calling Zeros.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From /opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+WARNING:tensorflow:From keras_2_tf.py:81: The name tf.keras.backend.get_session is deprecated. Please use tf.compat.v1.keras.backend.get_session instead.
+
+WARNING:tensorflow:From keras_2_tf.py:85: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
+-------------------------------------
+keras_2_tf command line arguments:
+ --keras_json: 
+ --keras_hdf5: ./build/keras_model/k_model.h5
+ --tf_ckpt   : ./build/tf_chkpt/tf_float.ckpt
+-------------------------------------
+Keras model information:
+ Input names : [<tf.Tensor 'input_1:0' shape=(?, 35, 35, 1) dtype=float32>]
+ Output names: [<tf.Tensor 'softmax/Softmax:0' shape=(?, 25) dtype=float32>]
+-------------------------------------
+ Checkpoint created : ./build/tf_chkpt/tf_float.ckpt
